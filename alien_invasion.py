@@ -2,12 +2,17 @@ import sys
 
 import pygame
 
+from settings import Settings
+
 def run_game():
 	#初始化游戏，创建屏幕对象
 	pygame.init()
-	screen = pygame.display.set_mode((1200,800))
+	ai_settings = Settings()
+	screen = pygame.display.set_mode((ai_settings.screen_width,ai_settings.screen_height))
 	pygame.display.set_caption("Alien Invasion")
 
+	#设置背景色
+	bg_color = (230,230,230)
 
 	#开始游戏主循环
 	while True:
@@ -16,6 +21,8 @@ def run_game():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
+
+		screen.fill(ai_settings.bg_color)
 
 		#最近绘制屏幕可见
 		pygame.display.flip()
