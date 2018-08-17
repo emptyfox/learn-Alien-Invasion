@@ -16,28 +16,28 @@ def run_game():
 
 	#创建一艘飞船
 	ship = Ship(ai_settings,screen)
+	alien = Alien(ai_settings,screen)
 
 
 	#创建一个用于存储子弹的编组
 	bullets = Group()
-
-	#创建一个外星人
-	alien = Alien(ai_settings,screen)
 
 	#开始游戏主循环
 	while True:
 
 		#监视键盘和鼠标事件
 		gf.check_events(ai_settings,screen,ship,bullets)
-		ship.update()
-
-		gf.update_bullets(bullets)
 		
-		gf.update_screen(ai_settings,screen,ship,alien,bullets) 
+
+		screen.fill(ai_settings.bg_color)
 
 
+		ship.blitme()
+		alien.blitme()
+		print(str(alien.rect.x)+" "+str(alien.rect.y)+" "+str(alien.rect.width)+" "+str(alien.rect.height))
 
-		#最近绘制屏幕可见
-		#pygame.display.flip()
+		#让最近绘制的屏幕可见
+		pygame.display.flip()
+		
 
 run_game()
