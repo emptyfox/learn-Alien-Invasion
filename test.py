@@ -1,4 +1,4 @@
-0import pygame
+import pygame
 
 from settings import Settings
 from ship import Ship
@@ -12,6 +12,7 @@ def run_game():
 	pygame.init()
 	ai_settings = Settings()
 	screen = pygame.display.set_mode((ai_settings.screen_width,ai_settings.screen_height))
+	print(type(screen))
 	pygame.display.set_caption("Alien Invasion")
 
 	#创建一艘飞船
@@ -23,7 +24,7 @@ def run_game():
 	bullets = Group()
 
 	#开始游戏主循环
-	while True:
+	"""while True:
 
 		#监视键盘和鼠标事件
 		gf.check_events(ai_settings,screen,ship,bullets)
@@ -37,7 +38,7 @@ def run_game():
 		print(str(alien.rect.x)+" "+str(alien.rect.y)+" "+str(alien.rect.width)+" "+str(alien.rect.height))
 
 		#让最近绘制的屏幕可见
-		pygame.display.flip()
+		pygame.display.flip()"""
 		
 
 run_game()
